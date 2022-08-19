@@ -1,19 +1,21 @@
 package QATraining.FinalProject;
 
+import java.time.LocalDate;
+
 public class Strike {
 	
-	private String dateOfStrike;
+	private LocalDate dateOfStrike;
 	private String location;
 	private String leader;
 	private String tradeUnion;
 	private String workArea;
 	private int capacity;
 	
-	private String getDateOfStrike() {
+	private LocalDate getDateOfStrike() {
 		return dateOfStrike;
 	}
 	
-	public void setDateOfStrike(String dateOfStrike) {
+	public void setDateOfStrike(LocalDate dateOfStrike) {
 		this.dateOfStrike = dateOfStrike;
 	}
 	
