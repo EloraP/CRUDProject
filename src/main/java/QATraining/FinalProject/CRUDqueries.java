@@ -25,7 +25,7 @@ public class CRUDqueries {
 		}
 	}
 	
-	public void create(Strike s) {
+	public void create() {
 		
 		System.out.println("Create");
 		}
@@ -34,11 +34,11 @@ public class CRUDqueries {
 		System.out.println("read");
 	}
 	
-	public void update(Strike s, String feature, String value) {
+	public void update() {
 		System.out.println("update");
 	}
 	
-	public void delete(Strike s) {
+	public void delete() {
 		System.out.println("delete");
 	}
 
