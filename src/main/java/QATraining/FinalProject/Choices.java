@@ -70,13 +70,13 @@ public class Choices {
 					sc.nextLine();//capture enter key
 					
 					
-					System.out.println("Entre feature to update: (Date, Location, Leader, Trade Union, Work Area, Capacity)");
+					System.out.println("Entre feature to update: (date, location, leader, tradeUnion, workArea, capacity)");
 					String feature = sc.nextLine();
 					
-					System.out.println("Enter the new " + feature + " of the vehicle: ");
+					System.out.println("Enter the new " + feature + " of the strike: ");
 					String value = sc.nextLine();
 					
-					q.update();					
+					q.update(uid, value, feature);					
 					break;
 				case "delete":
 					System.out.println("Enter id of record to delete: ");
