@@ -1,5 +1,7 @@
 package QATraining.FinalProject;
 
+//import com.qa.garage.Choice;
+
 //import defaultPackage.CRUDqueries;
 
 /**
@@ -12,6 +14,10 @@ public class Runner
     {
         System.out.println( "Hello World! JOE IS THE BEST" );
         
-        CRUDqueries q = new CRUDqueries();
+        
+
+		Choices start = new Choices();
+		start.options();
+	
     }
 }

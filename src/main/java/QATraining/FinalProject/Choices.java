@@ -31,10 +31,10 @@ public class Choices {
 					
 					Strike strike = new Strike();
 					
-					System.out.println("Enter Date: ");
+					System.out.println("Enter Date and Time: (YYYY-MM-DD HH:MM:SS)");
 					String date = sc.nextLine();
-					LocalDate formateDate = LocalDate.parse(date);
-					strike.setDateOfStrike(formateDate);
+					//LocalDate formateDate = LocalDate.parse(date);
+					strike.setDateOfStrike(date);
 					
 					System.out.println("Enter Location: ");
 					String location = sc.nextLine();
@@ -47,13 +47,22 @@ public class Choices {
 					System.out.println("Enter Trade Union: ");
 					String tradeUnion = sc.nextLine();
 					strike.setTradeUnion(tradeUnion);
+					
+					System.out.println("Enter Work Area: ");
+					String workArea = sc.nextLine();
+					strike.setWorkArea(workArea);
+					
+					System.out.println("Enter Capacity:");
+					int capacity = sc.nextInt();
+					sc.nextLine();
+					strike.setCapacity(capacity);
 				
-					q.create();
+					q.create(strike);
 					//q.create(new Vehicle(mod, miles, vType, door));
 					break;
 				case "read":
 					
-					q.viewAll();
+					q.view();
 					break;
 				case "update":
 					System.out.println("Enter id of record to update: ");
@@ -61,7 +70,7 @@ public class Choices {
 					sc.nextLine();//capture enter key
 					
 					
-					System.out.println("Entre feature to update: (model, miles, type, doors)");
+					System.out.println("Entre feature to update: (Date, Location, Leader, Trade Union, Work Area, Capacity)");
 					String feature = sc.nextLine();
 					
 					System.out.println("Enter the new " + feature + " of the vehicle: ");
@@ -98,7 +107,7 @@ public class Choices {
 			} while (!crud.equals("quit"));
 			System.out.println("Goodbye!");
 		} finally {
-			//q.closeConn();
+			q.closeConn();
 		}
 	}
 

@@ -4,18 +4,18 @@ import java.time.LocalDate;
 
 public class Strike {
 	
-	private LocalDate dateOfStrike;
+	private String dateOfStrike;
 	private String location;
 	private String leader;
 	private String tradeUnion;
 	private String workArea;
 	private int capacity;
 	
-	private LocalDate getDateOfStrike() {
+	public String getDateOfStrike() {
 		return dateOfStrike;
 	}
 	
-	public void setDateOfStrike(LocalDate dateOfStrike) {
+	public void setDateOfStrike(String dateOfStrike) {
 		this.dateOfStrike = dateOfStrike;
 	}
 	

@@ -25,13 +25,37 @@ public class CRUDqueries {
 		}
 	}
 	
-	public void create() {
+	public void create(Strike s) {
 		
-		System.out.println("Create");
+		String create = "INSERT INTO strikes(dateOfStrike, location, leader, tradeUnion, workArea) "
+				+ "VALUES ('" + s.getDateOfStrike() + "', '" + s.getLocation() + "', '" + s.getLeader() ;
+		
+		System.out.println(create);
 		}
 	
-	public void viewAll() {
-		System.out.println("read");
+	public void view() {
+		
+		String read = "SELECT * FROM strikes";
+		
+		try {
+			rs = stmt.executeQuery(read);
+			while (rs.next()) {
+				System.out.println("Date: " + rs.getString("dateOfStrike"));
+				System.out.println("Location: " + rs.getString("location"));
+				System.out.println("Leader: " + rs.getString("leader"));
+				System.out.println("Trade Union: " + rs.getString("tradeUnion"));
+				System.out.println("Work Area: " + rs.getString("workArea"));
+				System.out.println("Capacity: " + rs.getInt("capacity"));
+				System.out.println();
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Bad query");
+			e.printStackTrace();
+		}
+		
+		
+
 	}
 	
 	public void update() {
@@ -40,6 +64,16 @@ public class CRUDqueries {
 	
 	public void delete() {
 		System.out.println("delete");
+	}
+	
+	public void closeConn() {
+		try {
+			conn.close();
+			System.out.println("Closed!");
+		} catch (SQLException e) {
+			System.out.println("Closing connection...");
+			e.printStackTrace();
+		}
 	}
 
 }
