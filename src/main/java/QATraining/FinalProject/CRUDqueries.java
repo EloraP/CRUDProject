@@ -27,10 +27,20 @@ public class CRUDqueries {
 	
 	public void create(Strike s) {
 		
-		String create = "INSERT INTO strikes(dateOfStrike, location, leader, tradeUnion, workArea) "
-				+ "VALUES ('" + s.getDateOfStrike() + "', '" + s.getLocation() + "', '" + s.getLeader() ;
+		String create = "INSERT INTO strikes(dateOfStrike, location, leader, tradeUnion, workArea, capacity) "
+				+ "VALUES ('" + s.getDateOfStrike() + "', '" + s.getLocation() + "', '" 
+				+ s.getLeader() + "', '" + s.getTradeUnion() + "', '" + s.getWorkArea() + "', " 
+				+ s.getCapacity() + ");";
 		
-		System.out.println(create);
+		try {
+			stmt.executeUpdate(create);
+			System.out.println("Create statement executed");
+		} catch (SQLException e) {
+			System.out.println("Bad query");
+			e.printStackTrace();
+		}
+		
+		
 		}
 	
 	public void view() {
@@ -40,6 +50,7 @@ public class CRUDqueries {
 		try {
 			rs = stmt.executeQuery(read);
 			while (rs.next()) {
+				System.out.println("ID: " + rs.getInt("id"));
 				System.out.println("Date: " + rs.getString("dateOfStrike"));
 				System.out.println("Location: " + rs.getString("location"));
 				System.out.println("Leader: " + rs.getString("leader"));
@@ -62,8 +73,17 @@ public class CRUDqueries {
 		System.out.println("update");
 	}
 	
-	public void delete() {
-		System.out.println("delete");
+	public void delete(int id) {
+		String del = "DELETE FROM strikes WHERE id = " + id;
+		
+		try {
+			stmt.executeUpdate(del);
+			System.out.println("Delete statement executed");
+		} catch (SQLException e) {
+			System.out.println("Bad query");
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public void closeConn() {

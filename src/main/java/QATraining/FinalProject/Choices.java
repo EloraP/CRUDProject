@@ -82,7 +82,7 @@ public class Choices {
 					System.out.println("Enter id of record to delete: ");
 					int id = sc.nextInt();
 					sc.nextLine();//capture enter key
-					q.delete();
+					q.delete(id);
 					break;
 				case "search":
 					System.out.println("Enter id of record to view:");
